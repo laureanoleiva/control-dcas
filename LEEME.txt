@@ -1,0 +1,71 @@
+DCAS - CONTROL DE LIQUIDACIONES
+Publicación gratuita en GitHub Pages
+
+1. Extraé el ZIP en tu computadora (clic derecho > Extraer todo).
+2. Iniciá sesión en https://github.com y entrá en https://github.com/new
+3. Nombre del repositorio: control-dcas
+   Visibilidad: Public. Activá Add a README file. Pulsá Create repository.
+4. En el repositorio: Add file > Upload files.
+5. Abrí la carpeta descomprimida hasta ver index.html.
+   Arrastrá TODO SU CONTENIDO al área de carga: archivos y carpeta vendor.
+   No subas el ZIP ni la carpeta contenedora completa.
+   No subas archivos TR, PDF ni documentos con datos de beneficiarios al repositorio.
+6. Esperá que termine la carga. Pulsá Commit changes (directamente a main).
+7. Verificá que index.html, app.mjs, validator.mjs, style.css y vendor estén
+   en el primer nivel del repositorio. vendor debe conservar sus tres archivos.
+8. Abrí Settings > Pages. Bajo Build and deployment:
+   Source: Deploy from a branch
+   Branch: main
+   Folder: / (root)
+   Pulsá Save.
+9. Esperá que finalice la publicación. En Actions podés seguir pages build
+   and deployment. Volvé a Settings > Pages y abrí Visit site.
+   La dirección tendrá esta forma: https://TUUSUARIO.github.io/control-dcas/
+   Es un ejemplo: usá el enlace real que muestre GitHub.
+10. Abrí ese enlace en una ventana de incógnito para comprobar que no pide
+    iniciar sesión. Compartí el enlace github.io, no el del repositorio.
+
+PRIMERA PRUEBA
+Cargá el TR corregido y el PDF aportados como referencia en la página publicada.
+Artículo 3, mes octubre 2026, fecha prevista 09/11/2026.
+Confirmá que esa fecha es hábil para el banco y pulsá Controlar archivos.
+Resultado esperado con esos documentos sin cambios: 305 pagos y
+$252.481.326,05 en ambos archivos, sin diferencias.
+El archivo TR debe llamarse exactamente TR00996X(3), sin extensión.
+Si la descarga agregó un sufijo al nombre, el programa lo marcará.
+Conservá intacto el contenido; cualquier cambio requiere volver a controlarlo.
+
+USO MENSUAL
+Abrí el enlace, cargá los documentos de la misma liquidación, seleccioná el
+artículo y la fecha prevista, confirmá el día hábil y ejecutá el control.
+Los errores muestran línea del TR, persona y motivo. Podés buscar y descargar
+un informe. Corregí el TR fuera de la página y volvé a cargarlo.
+Los documentos permanecen en la memoria del navegador. No se suben a GitHub.
+
+SI ALGO NO FUNCIONA
+- Error 404: verificá que la publicación haya terminado, main / (root),
+  y que index.html esté en la raíz del repositorio.
+- Sin diseño o sin lectura de PDF: comprobá que subiste todos los archivos
+  y la carpeta vendor con su estructura. No cambies nombres ni extensiones.
+- No aparece main: primero confirmá la carga con Commit changes y recargá.
+- No aparece Pages: asegurate de estar en Settings del repositorio, no de tu perfil.
+- Usá Chrome o Edge actualizado. El programa se abre desde el enlace publicado,
+  no haciendo doble clic en index.html.
+- Si actualizás los archivos: repetí Add file > Upload files con los archivos
+  reemplazados en la misma ubicación. Confirmá y esperá la nueva publicación.
+  Recargá con Ctrl+F5. No hace falta volver a configurar Pages.
+
+ALCANCE
+Primera versión basada en el TR y PDF de referencia DCAS. Detecta diferencias
+por CUIL, CBU, nombres, importes y formato; no verifica titularidad de cuentas.
+Controla fines de semana; los feriados se confirman manualmente.
+No aplica OCR a PDFs escaneados. Una lectura parcial se marca como incompleta.
+Motor probado con los documentos originales y 13 casos de error deliberados.
+No se realizó una prueba visual en navegador ni un despliegue en GitHub Pages.
+
+DOCUMENTACIÓN OFICIAL
+https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
+
+DEPENDENCIAS
+PDF.js se incluye en vendor. Su licencia Apache 2.0 está en vendor/LICENSE.

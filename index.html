@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es-AR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Control de archivos TR y PDF de liquidaciones DCAS."><title>DCAS · Control de liquidaciones</title><link rel="stylesheet" href="./style.css"></head>
+<body>
+<header class="top"><a class="brand" href="./"><span class="mark">D<span>·</span></span><span>DCAS<small>TRÁMITE DE SUBSIDIOS</small></span></a><span class="private"><i></i> Archivos en tu equipo</span></header>
+<main>
+<div class="eyebrow">CONTROL PREVIO AL ENVÍO BANCARIO</div>
+<div class="intro"><div><h1>Cada pago,<br><em>bien revisado.</em></h1><p>Compará tu archivo TR con el PDF de la liquidación.<br>Encontrá diferencias antes de enviarlo al banco.</p></div><div class="intro-note"><span class="check-icon">✓</span><div><strong>Un control, dos documentos</strong><span>Personas, cuentas, importes y formato.<br>Sin modificar tus archivos.</span></div></div></div>
+<form id="control-form">
+<section class="panel"><div class="section-heading"><div><span class="step">01</span><h2>Cargá los archivos</h2></div><span class="muted">De la misma liquidación</span></div>
+<div class="uploads">
+<label class="drop" id="tr-drop"><input type="file" id="tr-file" aria-label="Cargar archivo TR" required><span class="file-icon">TR</span><strong>Archivo bancario TR</strong><span class="filename" id="tr-label">Elegí el archivo que ya modificaste</span><span class="file-action">Seleccionar archivo <b>↗</b></span><small>Sin extensión o archivo de texto</small></label>
+<label class="drop" id="pdf-drop"><input type="file" id="pdf-file" accept=".pdf,application/pdf" aria-label="Cargar PDF de la liquidación" required><span class="file-icon pdf">PDF</span><strong>Adjunto bancario PDF</strong><span class="filename" id="pdf-label">Elegí el detalle de pagos</span><span class="file-action">Seleccionar archivo <b>↗</b></span><small>PDF generado por el sistema, no escaneado</small></label>
+</div></section>
+<section class="panel settings"><div class="section-heading"><div><span class="step">02</span><h2>Confirmá la liquidación</h2></div></div>
+<div class="fields"><label>Artículo<select id="article"><option value="3">Artículo 3 · Becas</option><option value="1">Artículo 1</option><option value="2">Artículo 2</option></select></label><label>Mes de la liquidación<input id="month" type="month" required><small id="month-note">Se completa al leer el PDF</small></label><label>Fecha de pago prevista<input type="date" id="date" required><small>Un día hábil del mes siguiente</small></label></div>
+<label class="confirmation"><input type="checkbox" id="business-day" required><span>Confirmo que la fecha elegida es hábil para el banco.<small>El sistema controla sábados y domingos; los feriados se confirman manualmente.</small></span></label>
+<div class="run-row"><p><span>⌑</span> Los documentos se procesan en este navegador.<br><span class="indent">No se suben ni se guardan.</span></p><button type="submit" id="run">Controlar archivos <span>→</span></button></div>
+<div id="progress" class="progress" role="status" aria-live="polite" hidden></div>
+</section></form>
+<section id="results" class="results" hidden aria-live="polite"><div id="result-banner" class="result-banner"></div><div id="stats" class="stats"></div><div class="panel result-list"><div class="section-heading"><div><span class="step">03</span><h2>Detalle del control</h2></div><button class="secondary" id="download" type="button">Descargar informe ↓</button></div><div class="filters" id="filters"><label class="search"><span>⌕</span><input id="search" placeholder="Buscar persona, línea o error…" aria-label="Buscar en los errores"></label><span id="issue-count"></span></div><div id="table-wrap"></div></div></section>
+<details class="rules"><summary>Qué revisa este control <span>+</span></summary><div><p><b>Formato TR.</b> 100 posiciones por registro, cero final, Ñ y otros caracteres, espacios dobles en cualquier parte del nombre, referencia, encabezado, bloque fijo, nombre del archivo y Enter final.</p><p><b>Pagos.</b> Estructura de CBU y CUIL, duplicados, importes y totales. El cierre debe contar los pagos más dos registros.</p><p><b>Comparación.</b> Cruce por CUIL y CBU, independientemente del orden. Detecta personas faltantes o sobrantes y diferencias en cuentas, nombres e importes.</p><p><b>Lectura completa.</b> Si no se pueden reconstruir todos los pagos y totales del PDF, se indica «Control incompleto». El control de CBU no verifica su titularidad.</p><p>Reglas basadas en el formato TR y el PDF de referencia aportados por DCAS. No reemplaza la aceptación del archivo por el banco.</p></div></details>
+<footer><strong>DCAS</strong><span>Control de liquidaciones <b>·</b> Versión 1.0</span><span>Hecho para revisar con tranquilidad.</span></footer>
+</main><script type="module" src="./app.mjs"></script></body></html>
